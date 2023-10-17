@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>21cs070</title>
+    <style>
+       
+        .cal{
+            height:450px;
+            width:300px;
+            border: 3px solid black;
+            text-align: center;
+        }
+        button{
+            width:65px;
+            height:65px;
+            
+        }
+        .text{
+            height:45px;
+            width:253px;
+            border:3px solid #ccc;
+            background-color:#eee;
+            font-size: 25px;
+            padding:20px;
+        }
+    </style>
+    <script>
+         let displayValue = "";
+
+function addNumber(value) {
+    displayValue += value;
+    document.getElementById("tet").innerHTML = displayValue;
+}
+
+function addOperator(operator) {
+    if (displayValue !== "") {
+        displayValue += operator;
+        document.getElementById("tet").innerHTML = displayValue;
+    }
+}
+
+function clearDisplay() {
+    displayValue = "";
+    document.getElementById("tet").innerHTML = "";
+}
+
+function calculateResult() {
+    try {
+        displayValue = eval(displayValue);
+        document.getElementById("tet").innerHTML = displayValue;
+    } catch (error) {
+        document.getElementById("tet").innerHTML = "Error";
+    }
+}
+    </script>
+    </head>
+<body>
+    <center><h1>CALCULATOR</h1>
+    
+    <div class="cal">
+        <div id="tet" class="text"></div><br>
+        <div class="btns">
+            <button onclick="addNumber('1')"><b>1</b></button>
+            <button onclick="addNumber('2')"><b>2</b></button>
+            <button onclick="addNumber('3')"><b>3</b></button>
+            <button onclick="addOperator('+')"><b>+</b></button>
+            <button onclick="addNumber('4')"><b>4</b></button>
+            <button onclick="addNumber('5')"><b>5</b></button>
+            <button onclick="addNumber('6')"><b>6</b></button>
+            <button onclick="addOperator('-')"><b>-</b></button>
+            <button onclick="addNumber('7')"><b>7</b></button>
+            <button onclick="addNumber('8')"><b>8</b></button>
+            <button onclick="addNumber('9')"><b>9</b></button>
+            <button onclick="addOperator('*')"><b>*</b></button>
+            <button onclick="clearDisplay()"><b>AC</b></button>
+            <button onclick="addNumber('0')"><b>0</b></button>
+            <button onclick="calculateResult()"><b>=</b></button>
+            <button onclick="addOperator('/')"><b>/</b></button>
+        </div>
+    </div>
+</center>
+</body>
+</html>
